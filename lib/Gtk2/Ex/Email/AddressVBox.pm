@@ -10,50 +10,50 @@ Gtk2::Ex::Email::AddressVBox - Creates a VBox for handling email addresses simil
 
 =head1 VERSION
 
-Version 0.0.0
+Version 0.0.1
 
 =cut
 
-our $VERSION = '0.0.0';
+our $VERSION = '0.0.1';
 
 
 =head1 SYNOPSIS
 
-use Gtk2::Ex::Email::AddressVBox;
-use Gtk2;
-use Data::Dumper;
-
-Gtk2->init;
-
-#init it
-my $avb=Gtk2::Ex::Email::AddressVBox->new();
-
-#get the VBox and add it
-my $vbox=Gtk2::VBox->new;
-$vbox->show;
-my $vbox2=$avb->vbox;
-$vbox->pack_start($vbox2, 1, 1, 1);
-
-#adds a button that calls getAddresses
-my $button=Gtk2::Button->new;
-$button->show;
-my $buttonLabel=Gtk2::Label->new('get addresses');
-$buttonLabel->show;
-$button->add($buttonLabel);
-$vbox->pack_start($button, 1, 1, 1);
-$button->signal_connect(activated=>{
-									my %addresses=$avb->getAddresses;
-									print Dumper(\%addresses);
-									}
-						);
-
-#add the VBox to the window
-my $window=Gtk2::Window->new;
-$window->add($vbox);
-$window->show;
-
-#run it
-Gtk2->main;
+    use Gtk2::Ex::Email::AddressVBox;
+    use Gtk2;
+    use Data::Dumper;
+    
+    Gtk2->init;
+    
+    #init it
+    my $avb=Gtk2::Ex::Email::AddressVBox->new();
+    
+    #get the VBox and add it
+    my $vbox=Gtk2::VBox->new;
+    $vbox->show;
+    my $vbox2=$avb->vbox;
+    $vbox->pack_start($vbox2, 1, 1, 1);
+    
+    #adds a button that calls getAddresses
+    my $button=Gtk2::Button->new;
+    $button->show;
+    my $buttonLabel=Gtk2::Label->new('get addresses');
+    $buttonLabel->show;
+    $button->add($buttonLabel);
+    $vbox->pack_start($button, 1, 1, 1);
+    $button->signal_connect(activated=>{
+	    								my %addresses=$avb->getAddresses;
+		    							print Dumper(\%addresses);
+			    						}
+				    		);
+    
+    #add the VBox to the window
+    my $window=Gtk2::Window->new;
+    $window->add($vbox);
+    $window->show;
+    
+    #run it
+    Gtk2->main;
 
 =head1 METHODS
 
@@ -76,7 +76,6 @@ sub new{
 	bless $self;
 	
 	return $self;
-
 }
 
 =head2 addHB
